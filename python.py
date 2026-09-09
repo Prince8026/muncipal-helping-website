@@ -13,6 +13,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['UPLOAD_FOLDER'] = 'uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
