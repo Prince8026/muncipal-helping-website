@@ -245,10 +245,10 @@ def admin_dashboard():
         selected_status=status_filter
     )
 
-
-if __name__ == "__main__":
-    with app.app_context():
+with app.app_context():
         db.create_all()
         make_admin()
 
+
+if __name__ == "__main__":
     app.run(debug=True, use_reloader=False, port=8000)
